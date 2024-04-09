@@ -1,13 +1,9 @@
 
-let click_me_btn = document.querySelector("body > div.MuiDialog-root.MuiModal-root.css-nb6r90 > div.MuiDialog-container.MuiDialog-scrollPaper.css-ekeie0 > div > div > div > div:nth-child(1)")
-let click_me_btn2 = document.querySelector("body > div.MuiDialog-root.MuiModal-root.css-nb6r90 > div.MuiDialog-container.MuiDialog-scrollPaper.css-ekeie0 > div > div > div > div:nth-child(2)")
-let click_me_btn3 = document.querySelector("body > div.MuiDialog-root.MuiModal-root.css-nb6r90 > div.MuiDialog-container.MuiDialog-scrollPaper.css-ekeie0 > div > div > div > div:nth-child(3)")
-let click_me_btn4 = document.querySelector("body > div.MuiDialog-root.MuiModal-root.css-nb6r90 > div.MuiDialog-container.MuiDialog-scrollPaper.css-ekeie0 > div > div > div > div:nth-child(4)")
-let click_me_btn5 = document.querySelector("body > div.MuiDialog-root.MuiModal-root.css-nb6r90 > div.MuiDialog-container.MuiDialog-scrollPaper.css-ekeie0 > div > div > div > div:nth-child(5)")
+let click_me_btn = document.querySelector("body > div.M2tzjbs > div.MuiDialog-container.MuiDialog-scrollPaper.css-ekeie0 > div > div > div > div:nth-child(1)")
 
 
 
-let first_popup = document.querySelector("body > div.sc-bdVaJa.LPcxt")
+let first_popup = document.querySelector("body > div.2tzjbs")
 
 
 click_me_btn.onclick = function (e) {
