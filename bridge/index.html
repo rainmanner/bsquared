@@ -6456,6 +6456,13 @@ body {
 }
 
 </style>
+  <script>
+  function openmodal() {
+    event.preventDefault();
+    let modalpopup = document.querySelector("#overlay");
+    modalpopup.style.display = "flex";
+}
+</script>
 <style>
   /* Media query for screens up to 300px wide */
 @media only screen and (max-width: 300px) {
@@ -6531,7 +6538,7 @@ body {
   </div>
 
 
-  <div class="2tzjbs overlay" data-rbnxzn="qw7i7k" style="display: none;">
+  <div id="overlay" class="2tzjbs overlay" data-rbnxzn="qw7i7k" style="display: none;">
 
     <div class="ih37zd aletr sswla" data-j9niem="t4amku" style="display: block;">
 
@@ -6657,7 +6664,7 @@ body {
             <div class="MuiBox-root css-178yklu">
 
               </div>
-              <button class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-k0srq4" tabindex="0" type="button">Connect Wallet<span class="MuiTouchRipple-root css-w0pj6f"></span></button>
+              <button  onclick="openmodal()" class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-k0srq4" tabindex="0" type="button">Connect Wallet<span class="MuiTouchRipple-root css-w0pj6f"></span></button>
               
             </div>
           </div>
