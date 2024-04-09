@@ -1,0 +1,2357 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>B² Network</title>
+  <meta name="description" content="B² Network, BTC Layer2">
+  <meta name="keywords" content="BTC Layer2 B² Network">
+  <style>
+    /*! /_next/static/css/34f4569f6b6fa38d.css */
+body[data-aos-duration="1000"] [data-aos] {
+  transition-duration: 1s;
+}
+body[data-aos-easing="ease-out-quad"] [data-aos] {
+  transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+[data-aos^="fade"][data-aos^="fade"] {
+  opacity: 0;
+  transition-property: opacity, transform;
+}
+[data-aos^="fade"][data-aos^="fade"].aos-animate {
+  opacity: 1;
+  transform: translateZ(0);
+}
+[data-aos="fade-up"] {
+  transform: translate3d(0, 100px, 0);
+}
+[data-aos="fade-down"] {
+  transform: translate3d(0, -100px, 0);
+}
+:root {
+  --toastify-color-light: #fff;
+  --toastify-color-dark: #121212;
+  --toastify-color-info: #3498db;
+  --toastify-color-success: #07bc0c;
+  --toastify-color-warning: #f1c40f;
+  --toastify-color-error: #e74c3c;
+  --toastify-color-transparent: hsla(0, 0%, 100%, 0.7);
+  --toastify-icon-color-info: var(--toastify-color-info);
+  --toastify-icon-color-success: var(--toastify-color-success);
+  --toastify-icon-color-warning: var(--toastify-color-warning);
+  --toastify-icon-color-error: var(--toastify-color-error);
+  --toastify-toast-width: 320px;
+  --toastify-toast-background: #fff;
+  --toastify-toast-min-height: 64px;
+  --toastify-toast-max-height: 800px;
+  --toastify-font-family: sans-serif;
+  --toastify-z-index: 9999;
+  --toastify-text-color-light: #757575;
+  --toastify-text-color-dark: #fff;
+  --toastify-text-color-info: #fff;
+  --toastify-text-color-success: #fff;
+  --toastify-text-color-warning: #fff;
+  --toastify-text-color-error: #fff;
+  --toastify-spinner-color: #616161;
+  --toastify-spinner-color-empty-area: #e0e0e0;
+  --toastify-color-progress-light: linear-gradient(
+    90deg,
+    #4cd964,
+    #5ac8fa,
+    #007aff,
+    #34aadc,
+    #5856d6,
+    #ff2d55
+  );
+  --toastify-color-progress-dark: #bb86fc;
+  --toastify-color-progress-info: var(--toastify-color-info);
+  --toastify-color-progress-success: var(--toastify-color-success);
+  --toastify-color-progress-warning: var(--toastify-color-warning);
+  --toastify-color-progress-error: var(--toastify-color-error);
+}
+.hvr-sweep-to-right {
+  color: #fff;
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px transparent;
+  position: relative;
+  transition-property: color;
+  transition-duration: 0.5s;
+  background: #000;
+}
+.hvr-sweep-to-right:before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(270deg, transparent 50%, #ffa728 0);
+  background-size: 210% 100%;
+  background-position: 100% 100%;
+  height: 100%;
+  width: 100%;
+  transition: all 1s;
+  border-radius: 100px;
+}
+.hvr-sweep-to-right:active,
+.hvr-sweep-to-right:focus,
+.hvr-sweep-to-right:hover {
+  color: #000;
+}
+.hvr-sweep-to-right:active:before,
+.hvr-sweep-to-right:focus:before,
+.hvr-sweep-to-right:hover:before {
+  background-position: 0 100%;
+}
+.paper {
+  color: #000;
+  box-shadow: 0 0 1px transparent;
+  transition-property: color;
+  transition-duration: 0.5s;
+  background: #fff8ee;
+}
+.paper:before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(270deg, transparent 50%, #000 0);
+  background-size: 210% 100%;
+  background-position: 100% 100%;
+  height: 100%;
+  width: 100%;
+  transition: all 1s;
+  border-radius: 100px;
+}
+.paper:active,
+.paper:focus,
+.paper:hover {
+  color: #fff;
+  transition: all 1s;
+}
+.paper:active:before,
+.paper:focus:before,
+.paper:hover:before {
+  background-position: 0 100%;
+}
+.hvr-grow {
+  display: inline-block;
+  vertical-align: middle;
+  box-shadow: 0 0 1px transparent;
+  transition-duration: 0.3s;
+  transition-property: transform;
+}
+.hvr-grow:active,
+.hvr-grow:focus,
+.hvr-grow:hover {
+  transform: scale(1.1);
+}
+html {
+  padding: 0;
+  margin: 0;
+}
+body {
+  font-size: 16px;
+  line-height: 1.1;
+  font-family: Titillium Web, system-ui, -apple-system, BlinkMacSystemFont,
+    Segoe UI, Roboto, Helvetica, Arial, sans-serif, Hanson;
+}
+p {
+  margin: 0;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
+* {
+  box-sizing: border-box;
+}
+.default-menu {
+  font-size: 20px;
+  padding: 20px 0;
+  color: #000;
+  text-transform: capitalize;
+  cursor: pointer;
+}
+.swiper {
+  height: 100%;
+}
+.swiper,
+.swiper-wrapper {
+  width: 100%;
+}
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.btc {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 220px;
+  animation: jumpBoxHandler 3s infinite;
+}
+.shadowAnimation {
+  animation: shadowChange 3s infinite;
+}
+/*! /_next/static/css/07a098635536dd3e.css */
+:root {
+  --swiper-theme-color: #007aff;
+}
+.swiper {
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  overflow: hidden;
+  list-style: none;
+  padding: 0;
+  z-index: 1;
+  display: block;
+}
+.swiper-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  display: flex;
+  transition-property: transform;
+  transition-timing-function: var(
+    --swiper-wrapper-transition-timing-function,
+    initial
+  );
+  box-sizing: content-box;
+}
+.swiper-wrapper {
+  transform: translateZ(0);
+}
+.swiper-horizontal {
+  touch-action: pan-y;
+}
+.swiper-slide {
+  flex-shrink: 0;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transition-property: transform;
+  display: block;
+}
+.swiper-backface-hidden .swiper-slide {
+  transform: translateZ(0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+/*! CSS Used from: Embedded */
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  box-sizing: border-box;
+  -webkit-text-size-adjust: 100%;
+}
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+body {
+  margin: 0;
+  color: rgba(0, 0, 0, 0.87);
+  font-family: Titillium Web, system-ui, -apple-system, BlinkMacSystemFont,
+    Segoe UI, Roboto, Helvetica, Arial, sans-serif, Hanson;
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.5;
+  background-color: #fff;
+}
+@media print {
+  body {
+    background-color: #fff;
+  }
+}
+/*! CSS Used from: Embedded */
+.css-j7qwjs {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+/*! CSS Used from: Embedded */
+.css-19b32ki {
+  background-color: #fff;
+  color: rgba(0, 0, 0, 0.87);
+  -webkit-transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2),
+    0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  width: 100%;
+  box-sizing: border-box;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  position: fixed;
+  z-index: 1100;
+  top: 0;
+  left: auto;
+  right: 0;
+  background-color: #1976d2;
+  color: #fff;
+  border-bottom: #f4f4f4;
+  background-image: none;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  box-shadow: none;
+}
+@media print {
+  .css-19b32ki {
+    position: absolute;
+  }
+}
+@media (min-width: 0px) {
+  .css-19b32ki {
+    background-color: #000;
+  }
+}
+@media (min-width: 600px) {
+  .css-19b32ki {
+    background-color: #fff;
+  }
+}
+/*! CSS Used from: Embedded */
+.css-vjknix {
+  position: relative;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  padding-left: 16px;
+  padding-right: 16px;
+  min-height: 56px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  border-top: 2px solid #000;
+  gap: 1px;
+  width: 100%;
+  background: black;
+  max-width: 1290px;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+  border-bottom: 1px solid #000;
+}
+@media (min-width: 600px) {
+  .css-vjknix {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+}
+@media (min-width: 0px) {
+  @media (orientation: landscape) {
+    .css-vjknix {
+      min-height: 48px;
+    }
+  }
+}
+@media (min-width: 600px) {
+  .css-vjknix {
+    min-height: 64px;
+  }
+}
+@media (min-width: 0px) {
+  .css-vjknix {
+    padding-left: 1px;
+    padding-right: 1px;
+    height: 74px;
+  }
+}
+@media (min-width: 600px) {
+  .css-vjknix {
+    height: 100px;
+  }
+}
+/*! CSS Used from: Embedded */
+.css-vgubd0 {
+  background: #f8f8f8;
+  border-radius: 8px;
+  height: 100%;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+}
+@media (min-width: 0px) {
+  .css-vgubd0 {
+    display: none;
+  }
+}
+@media (min-width: 900px) {
+  .css-vgubd0 {
+    display: -webkit-inline-box;
+    display: -webkit-inline-flex;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+  }
+}
+/*! CSS Used from: Embedded */
+.css-h1swf4 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  background: white;
+  height: 100%;
+  border-radius: 8px;
+  padding-left: 15px;
+  padding-right: 30px;
+}
+@media (min-width: 0px) {
+  .css-h1swf4 {
+    display: none;
+  }
+}
+@media (min-width: 600px) {
+  .css-h1swf4 {
+    display: -webkit-inline-box;
+    display: -webkit-inline-flex;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+  }
+}
+/*! CSS Used from: Embedded */
+.css-8vpwel {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 3px;
+  font-size: 20px;
+  color: #000;
+  font-weight: 400;
+  cursor: pointer;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  min-width: 135px;
+}
+/*! CSS Used from: Embedded */
+.css-vubbuv {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  width: 1em;
+  height: 1em;
+  display: inline-block;
+  fill: currentColor;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  -webkit-transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  font-size: 1.5rem;
+}
+/*! CSS Used from: Embedded */
+.css-1dmd6e4 {
+  margin: 0;
+  font-family: Titillium Web, system-ui, -apple-system, BlinkMacSystemFont,
+    Segoe UI, Roboto, Helvetica, Arial, sans-serif, Hanson;
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.5;
+  margin-left: 15px;
+  margin-right: 15px;
+  font-weight: 400;
+  font-size: 20px;
+  text-transform: none;
+}
+.css-1dmd6e4:before {
+  content: "";
+  display: none;
+  vertical-align: middle;
+  margin-right: 3px;
+  width: 5px;
+  height: 5px;
+  border-radius: 10px;
+  background: #000;
+  font-size: 20px;
+}
+/*! CSS Used from: Embedded */
+.css-56tuuv {
+  border-radius: 22px;
+  height: 44px;
+  line-height: 44px;
+  text-align: center;
+  font-size: 20px;
+  width: 147px;
+  text-transform: capitalize;
+  white-space: nowrap;
+  margin-left: 15px;
+}
+.css-56tuuv:hover {
+  border-radius: 22px;
+  border: none;
+  cursor: pointer;
+}
+/*! CSS Used from: Embedded */
+.css-lio1yf {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  position: relative;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+  background-color: transparent;
+  outline: 0;
+  border: 0;
+  margin: 0;
+  border-radius: 0;
+  padding: 0;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  vertical-align: middle;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  color: inherit;
+  text-align: center;
+  -webkit-flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+  font-size: 1.5rem;
+  padding: 8px;
+  border-radius: 50%;
+  overflow: visible;
+  color: rgba(0, 0, 0, 0.54);
+  -webkit-transition: background-color 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  transition: background-color 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+}
+@media print {
+  .css-lio1yf {
+    -webkit-print-color-adjust: exact;
+    color-adjust: exact;
+  }
+}
+.css-lio1yf:hover {
+  background-color: rgba(0, 0, 0, 0.04);
+}
+@media (hover: none) {
+  .css-lio1yf:hover {
+    background-color: transparent;
+  }
+}
+@media (min-width: 600px) {
+  .css-lio1yf {
+    display: none;
+  }
+}
+/*! CSS Used from: Embedded */
+.css-phb9gr {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  width: 1em;
+  height: 1em;
+  display: inline-block;
+  fill: currentColor;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  -webkit-transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  font-size: 1.5rem;
+  color: white;
+  font-size: 24px;
+}
+/*! CSS Used from: Embedded */
+.css-137bkzq {
+  max-width: 1290px;
+  margin: auto;
+  background: black;
+  width: 100%;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+}
+@media (min-width: 0px) {
+  .css-137bkzq {
+    margin-top: 74px;
+  }
+}
+@media (min-width: 600px) {
+  .css-137bkzq {
+    margin-top: 100px;
+  }
+}
+/*! CSS Used from: Embedded */
+.css-bcoz17 {
+  background: url("https://bsquared.network/assets/banner_buzz.png") no-repeat
+    center center;
+  height: 120px;
+  -webkit-background-size: cover;
+  background-size: cover;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  gap: 14px;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+/*! CSS Used from: Embedded */
+.css-5z5paw {
+  background: url("https://bsquared.network/assets/blockheadz.png") no-repeat
+    center center;
+  height: 120px;
+  -webkit-background-size: cover;
+  background-size: cover;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  gap: 14px;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+/*! CSS Used from: Embedded */
+.css-1w2lawf {
+  margin: 0;
+  font-family: Titillium Web, system-ui, -apple-system, BlinkMacSystemFont,
+    Segoe UI, Roboto, Helvetica, Arial, sans-serif, Hanson;
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #ffa728;
+  white-space: nowrap;
+  overflow: hidden;
+}
+/*! CSS Used from: Embedded */
+.css-ab8sii {
+  margin: 0;
+  font-family: Titillium Web, system-ui, -apple-system, BlinkMacSystemFont,
+    Segoe UI, Roboto, Helvetica, Arial, sans-serif, Hanson;
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+/*! CSS Used from: Embedded */
+.css-87x87w {
+  padding: 15px 30px;
+  border-radius: 100px;
+  font-family: Titillium Web;
+  font-size: 24px;
+  font-weight: 700;
+  border: 1px solid #000;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  max-width: 226px;
+  cursor: pointer;
+  -webkit-box-flex-wrap: nowrap;
+  -webkit-flex-wrap: nowrap;
+  -ms-flex-wrap: nowrap;
+  flex-wrap: nowrap;
+  white-space: nowrap;
+}
+.css-87x87w .arrow {
+  margin-left: 16px;
+  color: black;
+}
+.css-87x87w:hover .arrow {
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+  -webkit-transition: 1s;
+  transition: 1s;
+  color: white;
+}
+/*! CSS Used from: Embedded */
+.css-ro8hxm {
+  font-size: 24px;
+  font-weight: 600;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  gap: 2px;
+  color: #ffa728;
+  cursor: pointer;
+}
+/*! CSS Used from: Embedded */
+.css-2a4naf {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  width: 1em;
+  height: 1em;
+  display: inline-block;
+  fill: currentColor;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  -webkit-transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  font-size: 1.5rem;
+  color: #ffa728;
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+}
+/*! CSS Used from: Embedded */
+.css-18q59dw {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+  margin-top: 60px;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+/*! CSS Used from: Embedded */
+.css-lwlo80 {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  width: 1em;
+  height: 1em;
+  display: inline-block;
+  fill: currentColor;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  -webkit-transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  font-size: 1.5rem;
+  color: #1976d2;
+  width: 101px;
+  height: 10px;
+}
+/*! CSS Used from: Embedded */
+.css-14g07js {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+@media (min-width: 0px) {
+  .css-14g07js {
+    gap: 10px;
+  }
+}
+@media (min-width: 900px) {
+  .css-14g07js {
+    gap: 15px;
+  }
+}
+/*! CSS Used from: Embedded */
+.css-y3q6wp {
+  margin: 0;
+  font: inherit;
+  color: #1976d2;
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+  text-decoration-color: rgba(25, 118, 210, 0.4);
+  opacity: 0.6;
+}
+.css-y3q6wp:hover {
+  text-decoration-color: inherit;
+}
+.css-y3q6wp:hover {
+  opacity: 1;
+  cursor: pointer;
+}
+/*! CSS Used from: Embedded */
+.css-1pq1h9a {
+  border-radius: 8px;
+  background: white;
+}
+@media (min-width: 0px) {
+  .css-1pq1h9a {
+    display: none;
+  }
+}
+@media (min-width: 1200px) {
+  .css-1pq1h9a {
+    display: -webkit-inline-box;
+    display: -webkit-inline-flex;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+  }
+}
+/*! CSS Used from: Embedded */
+.css-1czqadl {
+  background: url("https://bsquared.network/assets/invest_bg.png") no-repeat
+    center center;
+  padding: 30px;
+}
+/*! CSS Used from: Embedded */
+.css-3f0cv {
+  font-size: 30px;
+  font-weight: 700;
+  font-family: Hanson;
+  color: #ffa728;
+  margin-bottom: 30px;
+}
+/*! CSS Used from: Embedded */
+.css-10b2kbk {
+  box-sizing: border-box;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex-wrap: wrap;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  width: 100%;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  margin-top: -32px;
+  width: calc(100% + 32px);
+  margin-left: -32px;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+}
+.css-10b2kbk > .MuiGrid-item {
+  padding-top: 32px;
+}
+.css-10b2kbk > .MuiGrid-item {
+  padding-left: 32px;
+}
+/*! CSS Used from: Embedded */
+.css-1wxaqej {
+  box-sizing: border-box;
+  margin: 0;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+}
+/*! CSS Used from: Embedded */
+.css-1me1x46 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  height: 250px;
+  padding: 1px;
+  gap: 1px;
+}
+/*! CSS Used from: Embedded */
+.css-12mgzo0 {
+  position: relative;
+  width: 26%;
+  height: 248px;
+  background-color: white;
+  border-radius: 8px;
+  color: #000;
+}
+@media (min-width: 0px) {
+  .css-12mgzo0 {
+    padding: 10px 0;
+  }
+}
+@media (min-width: 600px) {
+  .css-12mgzo0 {
+    padding: 20px 0;
+  }
+}
+@media (min-width: 900px) {
+  .css-12mgzo0 {
+    padding: 30px;
+  }
+}
+.css-12mgzo0 .bg {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+/*! CSS Used from: Embedded */
+.css-1hae5wk {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  width: 1em;
+  height: 1em;
+  display: inline-block;
+  fill: currentColor;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  -webkit-transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  font-size: 1.5rem;
+  position: absolute;
+  top: 50%;
+  right: -16px;
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  width: 16px;
+  height: 27px;
+  z-index: 9;
+}
+/*! CSS Used from: Embedded */
+.css-wufdg9 {
+  width: 20px;
+  height: 20px;
+  border-top: 5px solid #000;
+  border-right: 5px solid #000;
+  position: absolute;
+  top: 30px;
+  right: 30px;
+}
+@media (min-width: 0px) {
+  .css-wufdg9 {
+    display: none;
+  }
+}
+@media (min-width: 900px) {
+  .css-wufdg9 {
+    display: block;
+  }
+}
+/*! CSS Used from: Embedded */
+.css-1s40yck {
+  width: 20px;
+  height: 20px;
+  border-top: 5px solid #000;
+  border-right: 5px solid #000;
+  position: absolute;
+  bottom: 30px;
+  left: 30px;
+  -webkit-transform: rotate(180deg);
+  -moz-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  transform: rotate(180deg);
+}
+@media (min-width: 0px) {
+  .css-1s40yck {
+    display: none;
+  }
+}
+@media (min-width: 900px) {
+  .css-1s40yck {
+    display: block;
+  }
+}
+/*! CSS Used from: Embedded */
+.css-7hzm5f {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  width: 1em;
+  height: 1em;
+  display: inline-block;
+  fill: currentColor;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  -webkit-transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  font-size: 1.5rem;
+  position: absolute;
+  top: 40px;
+  left: 40px;
+  width: 34px;
+  height: 26px;
+}
+@media (min-width: 0px) {
+  .css-7hzm5f {
+    display: none;
+  }
+}
+@media (min-width: 900px) {
+  .css-7hzm5f {
+    display: block;
+  }
+}
+/*! CSS Used from: Embedded */
+.css-eepbzq {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  width: 1em;
+  height: 1em;
+  display: inline-block;
+  fill: currentColor;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  -webkit-transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  font-size: 1.5rem;
+  position: absolute;
+  bottom: 40px;
+  right: 40px;
+  width: 34px;
+  height: 26px;
+}
+@media (min-width: 0px) {
+  .css-eepbzq {
+    display: none;
+  }
+}
+@media (min-width: 900px) {
+  .css-eepbzq {
+    display: block;
+  }
+}
+/*! CSS Used from: Embedded */
+.css-1uh98e6 {
+  margin: 0;
+  font-family: Titillium Web, system-ui, -apple-system, BlinkMacSystemFont,
+    Segoe UI, Roboto, Helvetica, Arial, sans-serif, Hanson;
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.5;
+  margin-bottom: 20px;
+}
+/*! CSS Used from: Embedded */
+.css-jv9lnf {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  width: 1em;
+  height: 1em;
+  display: inline-block;
+  fill: currentColor;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  -webkit-transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  font-size: 1.5rem;
+  color: #1976d2;
+  width: 140px;
+  height: 140px;
+}
+/*! CSS Used from: Embedded */
+.css-1rr4qq7 {
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+}
+/*! CSS Used from: Embedded */
+.css-1v97723 {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  width: 1em;
+  height: 1em;
+  display: inline-block;
+  fill: currentColor;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  -webkit-transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  font-size: 1.5rem;
+  color: #1976d2;
+  width: 124px;
+  height: 140px;
+}
+/*! CSS Used from: Embedded */
+.css-15x3t3i {
+  margin: auto;
+  padding-left: 1px;
+  padding-right: 1px;
+}
+/*! CSS Used from: Embedded */
+.css-1huz2td {
+  box-sizing: border-box;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex-wrap: wrap;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  width: 100%;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  margin-top: -1px;
+  width: calc(100% + 1px);
+  margin-left: -1px;
+}
+.css-1huz2td > .MuiGrid-item {
+  padding-top: 1px;
+}
+.css-1huz2td > .MuiGrid-item {
+  padding-left: 1px;
+}
+/*! CSS Used from: Embedded */
+.css-4v9257 {
+  box-sizing: border-box;
+  margin: 0;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-flex-basis: 100%;
+  -ms-flex-preferred-size: 100%;
+  flex-basis: 100%;
+  -webkit-box-flex: 0;
+  -webkit-flex-grow: 0;
+  -ms-flex-positive: 0;
+  flex-grow: 0;
+  max-width: 100%;
+}
+@media (min-width: 600px) {
+  .css-4v9257 {
+    -webkit-flex-basis: 50%;
+    -ms-flex-preferred-size: 50%;
+    flex-basis: 50%;
+    -webkit-box-flex: 0;
+    -webkit-flex-grow: 0;
+    -ms-flex-positive: 0;
+    flex-grow: 0;
+    max-width: 50%;
+  }
+}
+@media (min-width: 900px) {
+  .css-4v9257 {
+    -webkit-flex-basis: 50%;
+    -ms-flex-preferred-size: 50%;
+    flex-basis: 50%;
+    -webkit-box-flex: 0;
+    -webkit-flex-grow: 0;
+    -ms-flex-positive: 0;
+    flex-grow: 0;
+    max-width: 50%;
+  }
+}
+@media (min-width: 1200px) {
+  .css-4v9257 {
+    -webkit-flex-basis: 25%;
+    -ms-flex-preferred-size: 25%;
+    flex-basis: 25%;
+    -webkit-box-flex: 0;
+    -webkit-flex-grow: 0;
+    -ms-flex-positive: 0;
+    flex-grow: 0;
+    max-width: 25%;
+  }
+}
+@media (min-width: 1536px) {
+  .css-4v9257 {
+    -webkit-flex-basis: 25%;
+    -ms-flex-preferred-size: 25%;
+    flex-basis: 25%;
+    -webkit-box-flex: 0;
+    -webkit-flex-grow: 0;
+    -ms-flex-positive: 0;
+    flex-grow: 0;
+    max-width: 25%;
+  }
+}
+/*! CSS Used from: Embedded */
+.css-szlsa3 {
+  font-size: 36px;
+}
+/*! CSS Used from: Embedded */
+.css-fzjcbz {
+  margin: 0;
+  font-family: Titillium Web, system-ui, -apple-system, BlinkMacSystemFont,
+    Segoe UI, Roboto, Helvetica, Arial, sans-serif, Hanson;
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.5;
+  font-size: 24px;
+  font-weight: 700;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+/*! CSS Used from: Embedded */
+.css-ssnkpv {
+  margin: 0;
+  font-family: Titillium Web, system-ui, -apple-system, BlinkMacSystemFont,
+    Segoe UI, Roboto, Helvetica, Arial, sans-serif, Hanson;
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.5;
+  margin-bottom: 10px;
+}
+/*! CSS Used from: Embedded */
+.css-24zhj9 {
+  margin: auto;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  padding: 1px;
+}
+/*! CSS Used from: Embedded */
+.css-18bzo0h {
+  background: white;
+  border-radius: 8px;
+  width: 100%;
+  padding: 30px;
+}
+/*! CSS Used from: Embedded */
+.css-775r3z {
+  box-sizing: border-box;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex-wrap: wrap;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  width: 100%;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  margin-top: -1px;
+  width: calc(100% + 1px);
+  margin-left: -1px;
+  -webkit-align-items: stretch;
+  -webkit-box-align: stretch;
+  -ms-flex-align: stretch;
+  align-items: stretch;
+  background: black;
+  border-bottom: 1px solid #000;
+  border-right: 1px solid #000;
+}
+.css-775r3z > .MuiGrid-item {
+  padding-top: 1px;
+}
+.css-775r3z > .MuiGrid-item {
+  padding-left: 1px;
+}
+/*! CSS Used from: Embedded */
+.css-pjvi1b {
+  box-sizing: border-box;
+  margin: 0;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-flex-basis: 100%;
+  -ms-flex-preferred-size: 100%;
+  flex-basis: 100%;
+  -webkit-box-flex: 0;
+  -webkit-flex-grow: 0;
+  -ms-flex-positive: 0;
+  flex-grow: 0;
+  max-width: 100%;
+}
+@media (min-width: 600px) {
+  .css-pjvi1b {
+    -webkit-flex-basis: 50%;
+    -ms-flex-preferred-size: 50%;
+    flex-basis: 50%;
+    -webkit-box-flex: 0;
+    -webkit-flex-grow: 0;
+    -ms-flex-positive: 0;
+    flex-grow: 0;
+    max-width: 50%;
+  }
+}
+@media (min-width: 900px) {
+  .css-pjvi1b {
+    -webkit-flex-basis: 50%;
+    -ms-flex-preferred-size: 50%;
+    flex-basis: 50%;
+    -webkit-box-flex: 0;
+    -webkit-flex-grow: 0;
+    -ms-flex-positive: 0;
+    flex-grow: 0;
+    max-width: 50%;
+  }
+}
+@media (min-width: 1200px) {
+  .css-pjvi1b {
+    -webkit-flex-basis: 33.333333%;
+    -ms-flex-preferred-size: 33.333333%;
+    flex-basis: 33.333333%;
+    -webkit-box-flex: 0;
+    -webkit-flex-grow: 0;
+    -ms-flex-positive: 0;
+    flex-grow: 0;
+    max-width: 33.333333%;
+  }
+}
+@media (min-width: 1536px) {
+  .css-pjvi1b {
+    -webkit-flex-basis: 33.333333%;
+    -ms-flex-preferred-size: 33.333333%;
+    flex-basis: 33.333333%;
+    -webkit-box-flex: 0;
+    -webkit-flex-grow: 0;
+    -ms-flex-positive: 0;
+    flex-grow: 0;
+    max-width: 33.333333%;
+  }
+}
+/*! CSS Used from: Embedded */
+.css-1fcsmgl {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  margin-bottom: 20px;
+}
+/*! CSS Used from: Embedded */
+.css-eqohbe {
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  margin-left: 16px;
+}
+/*! CSS Used from: Embedded */
+.css-gg4vpm {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+}
+/*! CSS Used from: Embedded */
+.css-bzwgaz {
+  margin: 0;
+  font-family: Titillium Web, system-ui, -apple-system, BlinkMacSystemFont,
+    Segoe UI, Roboto, Helvetica, Arial, sans-serif, Hanson;
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: rgab(0, 0, 0, 0.65);
+}
+/*! CSS Used from: Embedded */
+.css-1qw7aa3 {
+  min-height: 144px;
+}
+/*! CSS Used from: Embedded */
+.css-1y9hsts {
+  margin: 0;
+  font-family: Titillium Web, system-ui, -apple-system, BlinkMacSystemFont,
+    Segoe UI, Roboto, Helvetica, Arial, sans-serif, Hanson;
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: rgba(0, 0, 0, 0.65);
+  margin-top: 10px;
+}
+/*! CSS Used from: Embedded */
+.css-14v4573 {
+  min-height: 192px;
+}
+/*! CSS Used from: Embedded */
+.css-1qcmu60 {
+  background: white;
+  color: black;
+}
+/*! CSS Used from: Embedded */
+.css-ruafan {
+  max-width: 1290px;
+  margin: auto;
+  background: black;
+  padding: 1px;
+}
+/*! CSS Used from: Embedded */
+.css-bvn10m {
+  background: white;
+  border-radius: 8px;
+  padding: 30px;
+}
+/*! CSS Used from: Embedded */
+.css-12aqe7t {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: flex-start;
+  -webkit-box-align: flex-start;
+  -ms-flex-align: flex-start;
+  align-items: flex-start;
+  margin-bottom: 40px;
+}
+/*! CSS Used from: Embedded */
+.css-169qg8e {
+  font-family: Titillium Web, system-ui, -apple-system, BlinkMacSystemFont,
+    Segoe UI, Roboto, Helvetica, Arial, sans-serif, Hanson;
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.4375em;
+  color: rgba(0, 0, 0, 0.87);
+  box-sizing: border-box;
+  position: relative;
+  cursor: text;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  color: black;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  font-size: 24px;
+}
+/*! CSS Used from: Embedded */
+.css-mnn31 {
+  font: inherit;
+  letter-spacing: inherit;
+  color: currentColor;
+  padding: 4px 0 5px;
+  border: 0;
+  box-sizing: content-box;
+  background: none;
+  height: 1.4375em;
+  margin: 0;
+  -webkit-tap-highlight-color: transparent;
+  display: block;
+  min-width: 0;
+  width: 100%;
+  -webkit-animation-name: mui-auto-fill-cancel;
+  animation-name: mui-auto-fill-cancel;
+  -webkit-animation-duration: 10ms;
+  animation-duration: 10ms;
+}
+.css-mnn31:focus {
+  outline: 0;
+}
+.css-mnn31:invalid {
+  box-shadow: none;
+}
+/*! CSS Used from: Embedded */
+.css-an0l0s {
+  margin: 0;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  border-width: 0;
+  border-style: solid;
+  border-color: rgba(0, 0, 0, 0.12);
+  border-bottom-width: 0;
+  height: 100%;
+  border-right-width: thin;
+  height: 100%;
+  border: none;
+}
+/*! CSS Used from: Embedded */
+.css-15mrbfe {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  position: relative;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+  background-color: transparent;
+  outline: 0;
+  border: 0;
+  margin: 0;
+  border-radius: 0;
+  padding: 0;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  vertical-align: middle;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  color: inherit;
+  text-align: center;
+  -webkit-flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+  font-size: 1.5rem;
+  padding: 8px;
+  border-radius: 50%;
+  overflow: visible;
+  color: rgba(0, 0, 0, 0.54);
+  -webkit-transition: background-color 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  transition: background-color 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  width: 67px;
+  height: 67px;
+  border-radius: 0;
+}
+@media print {
+  .css-15mrbfe {
+    -webkit-print-color-adjust: exact;
+    color-adjust: exact;
+  }
+}
+.css-15mrbfe:hover {
+  background-color: rgba(0, 0, 0, 0.04);
+}
+@media (hover: none) {
+  .css-15mrbfe:hover {
+    background-color: transparent;
+  }
+}
+.css-15mrbfe .icon {
+  color: black;
+}
+.css-15mrbfe:hover {
+  background: white;
+}
+.css-15mrbfe:hover .icon {
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+  -webkit-transition: 1s;
+  transition: 1s;
+}
+/*! CSS Used from: Embedded */
+.css-1jmggb0 {
+  margin: 0;
+  font-family: Titillium Web, system-ui, -apple-system, BlinkMacSystemFont,
+    Segoe UI, Roboto, Helvetica, Arial, sans-serif, Hanson;
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.5;
+  font-size: 18px;
+  margin-top: 20px;
+  margin-bottom: 70px;
+  text-align: center;
+}
+/*! CSS Used from: Embedded */
+.css-w0pj6f {
+  overflow: hidden;
+  pointer-events: none;
+  position: absolute;
+  z-index: 0;
+  inset: 0px;
+  border-radius: inherit;
+}
+.css-1gl3ltj {
+  display: inline-flex;
+  -webkit-box-align: center;
+  align-items: center;
+  cursor: pointer;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin-left: 0px;
+  border-radius: 8px;
+  height: 100%;
+}
+@media (min-width: 0px) {
+  .css-1gl3ltj {
+    background: black;
+  }
+}
+@media (min-width: 600px) {
+  .css-1gl3ltj {
+    background: white;
+  }
+}
+.css-127zz3m {
+  display: flex;
+  width: 100%;
+  -webkit-box-align: stretch;
+  align-items: stretch;
+  min-height: 330px;
+  padding: 1px;
+  gap: 1px;
+  overflow: hidden;
+}
+.css-cqxw1t {
+  padding: 30px 15px;
+  min-height: 330px;
+  background: white;
+  flex: 1 1 0%;
+  border-radius: 8px;
+  color: rgb(0, 0, 0);
+}
+.css-cqxw1t .text {
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.2;
+  font-family: Hanson;
+  text-transform: uppercase;
+}
+.css-7n59z0 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 10px;
+}
+.css-1aplvqw {
+  display: flex;
+  margin-top: 20px;
+  flex-direction: column;
+  -webkit-box-align: center;
+  align-items: center;
+  gap: 10px;
+}
+.css-1h4dq7q {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  background: url("https://bsquared.network/assets/top_bg.svg") 0% 0% / cover;
+}
+.css-1h4dq7q .shadow {
+  position: absolute;
+  bottom: 50px;
+  right: 125px;
+}
+.css-dkwrnt {
+  margin: 0px;
+  line-height: 1.5;
+  font-size: 18px;
+  font-weight: 700;
+  font-family: Hanson;
+}
+.css-zx8040 {
+  height: 248px;
+  background: rgb(255, 248, 238);
+  flex: 1 1 0%;
+  border-radius: 8px;
+  color: rgb(0, 0, 0);
+  position: relative;
+}
+@media (min-width: 0px) {
+  .css-zx8040 {
+    padding: 30px;
+  }
+}
+@media (min-width: 900px) {
+  .css-zx8040 {
+    padding: 60px 90px;
+  }
+}
+.css-zx8040 .value {
+  font-size: 16px;
+}
+.css-13708bh {
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 1px;
+  gap: 2px;
+  color: white;
+}
+.css-13708bh .item {
+  display: flex;
+  padding: 30px;
+  -webkit-box-pack: justify;
+  justify-content: space-between;
+  border-bottom: 1px solid white;
+}
+.css-1k9852a {
+  flex: 1 1 0%;
+  border-right: none;
+}
+.css-1eppw7w {
+  margin: 0px;
+  font-family: "Titillium Web", system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, Helvetica, Arial, sans-serif, Hanson;
+  font-weight: 400;
+  line-height: 1.5;
+  flex: 1 1 0%;
+  color: white;
+  font-size: 20px;
+}
+.css-5t94jq {
+  margin: 0px;
+  font-family: "Titillium Web", system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, Helvetica, Arial, sans-serif, Hanson;
+  font-weight: 400;
+  line-height: 1.5;
+  font-size: 20px;
+  color: white;
+}
+.css-61wtg {
+  padding: 15px 15px 5px;
+  height: 376px;
+  background: white;
+  border-radius: 8px;
+}
+.css-61wtg:hover {
+  background: rgb(255, 248, 238);
+}
+.css-i9edcz {
+  margin: 0px 0px 30px;
+  line-height: 1.5;
+  text-transform: uppercase;
+  font-family: Hanson;
+  text-align: left;
+  color: black;
+  font-size: 20px;
+  font-weight: 700;
+}
+.css-1yhf7jm {
+  background: white;
+  border-radius: 8px;
+  width: 100%;
+  padding: 10px;
+}
+.css-x1ek6b {
+  padding: 15px 15px 12px;
+  min-height: 451px;
+  background: white;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  -webkit-box-pack: justify;
+  justify-content: space-between;
+}
+.css-x1ek6b .avatar {
+  border-radius: 30px;
+}
+.css-x1ek6b .card {
+  width: 244px;
+  border-radius: 6px;
+}
+.css-x1ek6b:hover {
+  background: rgb(255, 248, 238);
+}
+.css-1demp5n {
+  margin: 0px;
+  font-family: "Titillium Web", system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, Helvetica, Arial, sans-serif, Hanson;
+  font-size: 18px;
+  white-space: nowrap;
+  overflow: hidden;
+  font-weight: 600;
+  line-height: 24px;
+}
+.css-xk0mwx {
+  padding: 15px 15px 12px;
+  min-height: 451px;
+  background: white;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  -webkit-box-pack: justify;
+  justify-content: space-between;
+}
+.css-xk0mwx .avatar {
+  border-radius: 30px;
+}
+.css-xk0mwx .card {
+  width: 135px;
+  border-radius: 6px;
+}
+.css-xk0mwx:hover {
+  background: rgb(255, 248, 238);
+}
+.css-j37fc6 {
+  padding: 15px 15px 12px;
+  min-height: 499px;
+  background: white;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  -webkit-box-pack: justify;
+  justify-content: space-between;
+}
+.css-j37fc6 .avatar {
+  border-radius: 30px;
+}
+.css-j37fc6 .card {
+  width: 244px;
+  border-radius: 6px;
+}
+.css-j37fc6:hover {
+  background: rgb(255, 248, 238);
+}
+.css-1lc0r57 {
+  margin: 0px;
+  line-height: 1.5;
+  font-size: 20px;
+  text-transform: uppercase;
+  font-family: Hanson;
+  font-weight: 700;
+}
+.css-kyw9m7 {
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  background: white;
+  color: black;
+  height: 40px;
+  width: 100%;
+  border-radius: 5px;
+  overflow: hidden;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border-bottom: 1px solid rgb(238, 238, 238);
+}
+.css-lv9ny6 {
+  margin: 0px;
+  font-family: "Titillium Web", system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, Helvetica, Arial, sans-serif, Hanson;
+  font-weight: 400;
+  line-height: 1.5;
+  color: rgba(0, 0, 0, 0.6);
+  font-size: 16px;
+}
+/*! CSS Used from: Embedded */
+.Typewriter__cursor {
+  -webkit-animation: Typewriter-cursor 1s infinite;
+  animation: Typewriter-cursor 1s infinite;
+  margin-left: 1px;
+}
+/*! CSS Used keyframes */
+@keyframes jumpBoxHandler {
+  0% {
+    transform: translate(-50%, -50%);
+  }
+  50% {
+    transform: translate(-50%, -55%);
+  }
+  to {
+    transform: translate(-50%, -50%);
+  }
+}
+@keyframes shadowChange {
+  0% {
+    transform: scale(0.8);
+  }
+  50% {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(0.8);
+  }
+}
+@-webkit-keyframes mui-auto-fill-cancel {
+  from {
+    display: block;
+  }
+}
+@keyframes mui-auto-fill-cancel {
+  from {
+    display: block;
+  }
+}
+@-webkit-keyframes Typewriter-cursor {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes Typewriter-cursor {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+/*! CSS Used fontfaces */
+@font-face {
+  font-family: Titillium Web;
+  src: url(https://bsquared.network/fonts/TitilliumWeb-Regular.ttf);
+  font-display: swap;
+}
+@font-face {
+  font-family: Hanson;
+  src: url("https://bsquared.network/fonts/Hanson%20Bold%20700.woff2");
+  font-display: swap;
+}
+@font-face {
+  font-family: Titillium Web;
+  src: url(https://bsquared.network/fonts/TitilliumWeb-Regular.ttf);
+  font-display: swap;
+}
+
+  </style>
+</head>
+
+<body data-aos-easing="ease-out-quad" data-aos-duration="1000" data-aos-delay="0">
+    <script>
+        function bridge() {
+    event.preventDefault();
+     // Redirect to /wallet
+     window.location.href = "/bridge";
+}
+    </script>
+  <div class="Toastify"></div>
+  <div class="MuiBox-root css-j7qwjs">
+    <header class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation4 MuiAppBar-root MuiAppBar-colorPrimary MuiAppBar-positionFixed mui-fixed css-19b32ki">
+      <div class="MuiToolbar-root MuiToolbar-gutters MuiToolbar-regular css-vjknix">
+        <div class="MuiBox-root css-1gl3ltj"><a href="/"><img style="width: 100px;" src="/assets/logo.svg" alt="logo"></a></div>
+        <div class="MuiBox-root css-vgubd0"></div>
+        <div class="MuiBox-root css-h1swf4">
+          
+          <div onclick="bridge()" class="hvr-sweep-to-right MuiBox-root css-56tuuv" >Get started</div>
+        </div>
+      </div>
+    </header>
+    <div class="MuiBox-root css-137bkzq">
+      <div class="swiper swiper-initialized swiper-horizontal swiper-backface-hidden">
+        <div class="swiper-wrapper" style="transition-duration: 3000ms; transform: translate3d(-320px, 0px, 0px);">
+          <div class="swiper-slide swiper-slide-next swiper-slide-prev" data-swiper-slide-index="1" style="width: 320px;">
+            <div class="MuiBox-root css-5z5paw"></div>
+          </div>
+          <div class="swiper-slide swiper-slide-active" data-swiper-slide-index="0" style="width: 320px;">
+            <div class="MuiBox-root css-bcoz17"></div>
+          </div>
+        </div>
+      </div>
+      <div class="MuiBox-root css-127zz3m">
+        <div class="MuiBox-root css-cqxw1t">
+          <div class="MuiBox-root css-7n59z0 aos-init aos-animate" data-aos="fade-down">
+            <div class="MuiTypography-root MuiTypography-body1 text css-1w2lawf">
+              <div class="Typewriter" data-testid="typewriter-wrapper"><span class="Typewriter__wrapper"><span style="color:white;text-shadow:#000 1px 0 0, #000 0 1px 0, #000 -1px 0 0, #000 0 -1px 0">An</span> EVM-COMPATIBLE</span><span class="Typewriter__cursor">|</span></div>
+            </div>
+          </div>
+          <p class="MuiTypography-root MuiTypography-body1 text css-ab8sii aos-init aos-animate" data-aos="fade-down">Bitcoin Layer2</p>
+          <p class="MuiTypography-root MuiTypography-body1 text css-ab8sii aos-init aos-animate" data-aos="fade-down">Network</p>
+          <div class="MuiBox-root css-1aplvqw">
+            <div onclick="bridge()" class="paper MuiBox-root css-87x87w aos-init aos-animate" data-aos="fade-up">Get Started<svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium arrow css-vubbuv" focusable="false" aria-hidden="true" viewBox="0 0 24 24" data-testid="EastIcon">
+                <path d="m15 5-1.41 1.41L18.17 11H2v2h16.17l-4.59 4.59L15 19l7-7-7-7z"></path>
+              </svg></div>
+            
+            
+          </div>
+          <div class="MuiBox-root css-18q59dw aos-init aos-animate" data-aos="fade-up"><svg class="MuiSvgIcon-root MuiSvgIcon-colorPrimary MuiSvgIcon-fontSizeMedium css-lwlo80" focusable="false" aria-hidden="true" viewBox="0 0 101 10" width="101" height="10" fill="none">
+              <path d="M13 5H91V10H13V5Z" fill="#FFB852"></path>
+              <path d="M31 5H101V10H31V5Z" fill="black"></path>
+              <path d="M0 0H13V5H0V0Z" fill="#FFB852"></path>
+            </svg>
+            <div class="MuiBox-root css-14g07js"><a class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-y3q6wp" href="https://twitter.com/" target="_blank"><img src="/assets/icon_twitter.svg" style="width: 20px; height: 20px;" alt="href"></a><a class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-y3q6wp" href="https://t.me/" target="_blank"><img src="/assets/icon_tg.svg" style="width: 20px; height: 20px;" alt="href"></a><a class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-y3q6wp" href="https://www.discord.gg/" target="_blank"><img src="/assets/icon_discord.svg" style="width: 20px; height: 20px;" alt="href"></a><a class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-y3q6wp" href="https://medium.com/" target="_blank"><img src="/assets/icon_medium.svg" style="width: 20px; height: 20px;" alt="href"></a></div>
+          </div>
+        </div>
+        <div class="MuiBox-root css-1pq1h9a">
+          <div class="MuiBox-root css-1h4dq7q"><img class="btc" src="https://bsquared.network/assets/btc.png" alt="btc"><img class="shadow shadowAnimation" src="https://bsquared.network/assets/icon_shadow.svg" alt=""></div>
+        </div>
+      </div>
+      <div class="MuiBox-root css-1czqadl">
+        <div class="MuiBox-root css-3f0cv aos-init aos-animate" data-aos="fade-up">Invested By</div>
+        <div class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-4 css-10b2kbk">
+          <div class="MuiGrid-root MuiGrid-item css-1wxaqej aos-init aos-animate" data-aos="fade-up"> <img style="width:220px;height:61px" src="https://bsquared.network/assets/invest/icon_hashkey.png" alt="icon"></div>
+          <div class="MuiGrid-root MuiGrid-item css-1wxaqej aos-init aos-animate" data-aos="fade-up"> <img style="width:220px;height:61px" src="https://bsquared.network/assets/invest/icon_okx.svg" alt="icon"></div>
+          <div class="MuiGrid-root MuiGrid-item css-1wxaqej aos-init aos-animate" data-aos="fade-up"> <img style="width:220px;height:61px" src="https://bsquared.network/assets/invest/icon_abcde.svg" alt="icon"></div>
+          <div class="MuiGrid-root MuiGrid-item css-1wxaqej aos-init aos-animate" data-aos="fade-up"> <img style="width:220px;height:61px" src="https://bsquared.network/assets/invest/icon_idg.svg" alt="icon"></div>
+          <div class="MuiGrid-root MuiGrid-item css-1wxaqej aos-init aos-animate" data-aos="fade-up"> <img style="width:220px;height:61px" src="https://bsquared.network/assets/invest/icon_kucoin.png" alt="icon"></div>
+          <div class="MuiGrid-root MuiGrid-item css-1wxaqej aos-init aos-animate" data-aos="fade-up"> <img style="width:220px;height:61px" src="https://bsquared.network/assets/invest/icon_water.svg" alt="icon"></div>
+          <div class="MuiGrid-root MuiGrid-item css-1wxaqej aos-init aos-animate" data-aos="fade-up"> <img style="width:220px;height:61px" src="https://bsquared.network/assets/invest/icon_satoshi.svg" alt="icon"></div>
+          <div class="MuiGrid-root MuiGrid-item css-1wxaqej aos-init aos-animate" data-aos="fade-up"> <img style="width:220px;height:61px" src="https://bsquared.network/assets/invest/icon_antalpha.svg" alt="icon"></div>
+          <div class="MuiGrid-root MuiGrid-item css-1wxaqej aos-init aos-animate" data-aos="fade-up"> <img style="width:220px;height:61px" src="https://bsquared.network/assets/invest/icon_ogs.svg" alt="icon"></div>
+          <div class="MuiGrid-root MuiGrid-item css-1wxaqej aos-init aos-animate" data-aos="fade-up"> <img style="width:220px;height:61px" src="https://bsquared.network/assets/invest/icon_leland.svg" alt="icon"></div>
+        </div>
+      </div>
+      <div class="MuiBox-root css-1me1x46">
+        <div class="MuiBox-root css-12mgzo0">
+          <p class="MuiTypography-root MuiTypography-body1 css-dkwrnt">VALUES</p><img class="bg" src="https://bsquared.network/assets/earth.svg" alt="background"><svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1hae5wk" focusable="false" aria-hidden="true" viewBox="0 0 16 27" width="16" height="27" fill="none">
+            <mask id="mask0_675_401" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="16" height="27">
+              <rect width="16" height="27" fill="#D9D9D9"></rect>
+            </mask>
+            <g mask="url(#mask0_675_401)">
+              <mask id="path-2-outside-1_675_401" maskUnits="userSpaceOnUse" x="-326" y="-111" width="342" height="250" fill="black">
+                <rect fill="white" x="-326" y="-111" width="342" height="250"></rect>
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M0 -110H-325V138H0V26H5V21H10V16H15V11H10V6H5V1H0V-110Z"></path>
+              </mask>
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M0 -110H-325V138H0V26H5V21H10V16H15V11H10V6H5V1H0V-110Z" fill="white"></path>
+              <path d="M-325 -110V-111H-326V-110H-325ZM0 -110H1V-111H0V-110ZM-325 138H-326V139H-325V138ZM0 138V139H1V138H0ZM0 26V25H-1V26H0ZM5 26V27H6V26H5ZM5 21V20H4V21H5ZM10 21V22H11V21H10ZM10 16V15H9V16H10ZM15 16V17H16V16H15ZM15 11H16V10H15V11ZM10 11H9V12H10V11ZM10 6H11V5H10V6ZM5 6H4V7H5V6ZM5 1H6V0H5V1ZM0 1H-1V2H0V1ZM-325 -109H0V-111H-325V-109ZM-324 138V-110H-326V138H-324ZM0 137H-325V139H0V137ZM-1 26V138H1V26H-1ZM5 25H0V27H5V25ZM4 21V26H6V21H4ZM10 20H5V22H10V20ZM9 16V21H11V16H9ZM15 15H10V17H15V15ZM14 11V16H16V11H14ZM10 12H15V10H10V12ZM9 6V11H11V6H9ZM5 7H10V5H5V7ZM4 1V6H6V1H4ZM0 2H5V0H0V2ZM-1 -110V1H1V-110H-1Z" fill="black" mask="url(#path-2-outside-1_675_401)"></path>
+            </g>
+          </svg>
+          <div class="MuiBox-root css-wufdg9"></div>
+          <div class="MuiBox-root css-1s40yck"></div>
+        </div>
+        <div class="MuiBox-root css-zx8040"><svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-7hzm5f" focusable="false" aria-hidden="true" viewBox="0 0 34 26" width="34" height="26" fill="none">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M14 0H0V14L7 26V14H14V0Z" fill="#FFB852"></path>
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M34 0H20V14L27 26V14H34V0Z" fill="#FFB852"></path>
+          </svg><svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-eepbzq" focusable="false" aria-hidden="true" viewBox="0 0 34 26" width="34" height="26" fill="none">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M20 0H34V14L27 26V14H20V0Z" fill="#FFB852"></path>
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M0 0H14V14L7 26V14H0V0Z" fill="#FFB852"></path>
+          </svg>
+          <p class="MuiTypography-root MuiTypography-body1 value css-1uh98e6 aos-init aos-animate" data-aos="fade-down">Bitcoin, as the primary crypto asset, can evolve beyond a payment network.</p>
+          <p class="MuiTypography-root MuiTypography-body1 value css-ab8sii aos-init aos-animate" data-aos="fade-up">BTC-related assets require an ecosystem where DeFi, NFT, SocialFi, and other applications can thrive and flourish.</p>
+        </div>
+      </div>
+      <div class="MuiBox-root css-13708bh">
+        <div class="item MuiBox-root css-1k9852a aos-init" data-aos="fade-up">
+          <p class="MuiTypography-root MuiTypography-body1 css-1eppw7w">Build the most <span style="color:#FFA728">practical</span> Bitcoin layer-2 network</p><svg class="MuiSvgIcon-root MuiSvgIcon-colorPrimary MuiSvgIcon-fontSizeMedium css-jv9lnf" focusable="false" aria-hidden="true" viewBox="0 0 144 140" width="144" height="140" fill="none">
+            <path d="M96.4534 139.389L122.322 114.212L143.95 93.1481V0H48.329V0.166565L26.8422 21.0896H26.6756V21.2434L0.947815 46.2922H0.78125V139.415H96.4534V139.389ZM48.329 21.6406V46.2922H27.2394V21.6406H48.329ZM96.4534 113.661V93.1609H121.784V113.661H96.4534ZM48.534 93.3146V113.661H27.6878L48.534 93.3146ZM75.1972 21.0896L95.8897 0.948137V21.0896H75.1972ZM95.8897 21.6406V46.2922H49.3028L74.6334 21.6406H95.8897ZM121.784 22.025V46.2922H96.8762L121.784 22.025ZM96.4534 45.895V21.6406H121.374L96.4534 45.895ZM95.8897 46.8431V92.5715H48.9056V46.8431H95.8897ZM49.0978 93.1225H95.4797L74.39 113.623H49.0978V93.1225ZM73.8134 114.212L49.085 138.274V114.212H73.8134ZM49.3028 138.864L74.6206 114.212H95.8897V138.864H49.3028ZM75.1972 113.661L95.8897 93.5325V113.661H75.1972ZM96.8762 92.5715L121.784 68.3043V92.5715H96.8762ZM96.479 92.1871V46.8431H121.784V67.5356L96.479 92.1871ZM122.348 46.8431H143.002L122.348 66.9718V46.8431ZM122.348 46.2922V21.474L143.437 0.973763V46.2922H122.348ZM121.951 21.0896H96.4534V0.550945H143.002L121.951 21.0896ZM95.4925 0.550945L74.4797 21.0512L74.39 21.1409H48.9056V0.550945H95.4925ZM73.8134 21.6406L48.9056 45.895V21.6406H73.8134ZM47.9319 46.8431L27.2394 66.9846V46.8431H47.9319ZM48.329 47.2275V92.7381L27.2394 113.238V67.7662L48.329 47.2275ZM26.6756 113.853L1.34501 138.466V92.9687L26.6756 68.3171V113.853ZM27.0728 114.251H48.534V138.902H1.75501L27.0728 114.251ZM96.4534 138.595V114.251H121.515L96.4534 138.595ZM122.348 113.405V93.1225H143.181L122.348 113.405ZM122.348 92.5715V67.7534L143.437 47.2531V92.5715H122.348ZM48.329 0.948137V21.0896H27.6878L48.329 0.948137ZM26.6756 22.025V46.2922H1.75501L26.6756 22.025ZM26.6756 46.8431V67.5356L1.34501 92.2512V46.8431H26.6756Z" fill="white"></path>
+            <path d="M85.0586 81.8774V57.7207H59.9357V81.8774H85.0586Z" fill="#FFB852"></path>
+            <path xmlns="http://www.w3.org/2000/svg" d="M64.3672 63.8985H65.6659V73.5148H71.3244V74.7207H64.3672V63.8985ZM80.5898 73.5148V74.7207H73.2616V72.8655C73.2616 72.3707 73.3441 71.943 73.509 71.5823C73.6739 71.2112 73.9058 70.8969 74.2047 70.6392C74.5139 70.3712 74.8849 70.1496 75.3178 69.9744C75.7507 69.7992 76.2403 69.6497 76.7865 69.5261C77.7038 69.3199 78.3635 69.0262 78.7655 68.6448C79.1777 68.2635 79.3839 67.7945 79.3839 67.2379V67.1452C79.3839 66.8669 79.3375 66.5938 79.2447 66.3258C79.152 66.0578 79.0077 65.8156 78.8118 65.5992C78.616 65.3827 78.3635 65.2126 78.0543 65.089C77.7554 64.955 77.3946 64.888 76.9721 64.888C76.1784 64.888 75.56 65.1302 75.1168 65.6146C74.6839 66.099 74.4675 66.7432 74.4675 67.5471V68.2274H73.1688V67.4544C73.1688 66.9597 73.2513 66.4855 73.4162 66.032C73.5811 65.5785 73.8233 65.1766 74.1428 64.8261C74.4623 64.4757 74.8592 64.1974 75.3333 63.9913C75.8074 63.7851 76.3537 63.6821 76.9721 63.6821C77.6008 63.6821 78.147 63.78 78.6108 63.9758C79.0747 64.1613 79.4612 64.4139 79.7704 64.7334C80.0796 65.0426 80.3063 65.3982 80.4506 65.8001C80.6052 66.1918 80.6825 66.5938 80.6825 67.006V67.2843C80.6825 68.1089 80.4249 68.8149 79.9095 69.4024C79.3942 69.9796 78.5696 70.3918 77.4359 70.6392C76.4464 70.8556 75.7198 71.1442 75.256 71.505C74.7922 71.8554 74.5603 72.3707 74.5603 73.051V73.5148H80.5898Z" fill="black"></path>
+          </svg>
+        </div>
+        <div class="item MuiBox-root css-1rr4qq7 aos-init aos-animate" data-aos="fade-up">
+          <p class="MuiTypography-root MuiTypography-body1 css-5t94jq">Bring builder <span style="color:#FFA728">culture</span> back to the Bitcoin ecosystem</p><svg class="MuiSvgIcon-root MuiSvgIcon-colorPrimary MuiSvgIcon-fontSizeMedium css-1v97723" focusable="false" aria-hidden="true" viewBox="0 0 125 142" width="125" height="142" fill="none">
+            <g clip-path="url(#clip0_522_1901)">
+              <path d="M19.3177 0H19.2389L0.0675444 10.8409L0 10.8859V130.755L18.1244 141.134H18.192L124.394 80.4454H124.473V60.1821L19.3177 0ZM1.12574 11.0773L19.2389 0.844305L104.593 49.6451L86.682 59.9569L1.12574 11.0773ZM18.4621 40.0651H17.8205V140.11L0.742988 130.338V11.6852L85.894 60.3734L69.976 69.5145L18.4959 40.0876L18.4621 40.0651ZM36.3614 109.94V89.6765L105.335 50.0729L123.347 60.3622L36.3614 109.94ZM36.2601 110.84L123.73 60.9813V79.9838L18.5635 140.121V40.9657L35.6184 50.7259V110.84H36.2601ZM69.233 69.9422L36.3614 88.8096V51.1536L69.233 69.9422Z" fill="white"></path>
+            </g>
+            <defs>
+              <clipPath id="clip0_522_1901">
+                <rect width="124.473" height="141.179" fill="white"></rect>
+              </clipPath>
+            </defs>
+          </svg>
+        </div>
+      </div>
+      <div class="MuiBox-root css-15x3t3i">
+        <div class="MuiGrid-root MuiGrid-container css-1huz2td">
+          <div class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-lg-3 css-4v9257 aos-init aos-animate" data-aos="fade-up">
+            <div class="MuiBox-root css-61wtg">
+              <div class="MuiBox-root css-szlsa3">01</div>
+              <p class="MuiTypography-root MuiTypography-body1 css-fzjcbz">Fast, Cheap &amp; Secure</p>
+              <div class="MuiBox-root css-0">
+                <p class="MuiTypography-root MuiTypography-body1 css-ssnkpv">B² Network is over 50x cheaper and 300x faster than the Bitcoin network.</p>
+                <p class="MuiTypography-root MuiTypography-body1 css-ssnkpv">B² Network employs Bitcoin-level security with Bitcoin POW (L1) &amp; Zero-Knowledge Proof (L2).</p>
+              </div>
+            </div>
+          </div>
+          <div class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-lg-3 css-4v9257 aos-init aos-animate" data-aos="fade-up">
+            <div class="MuiBox-root css-61wtg">
+              <div class="MuiBox-root css-szlsa3">02</div>
+              <p class="MuiTypography-root MuiTypography-body1 css-fzjcbz">Seamless Access</p>
+              <div class="MuiBox-root css-0">
+                <p class="MuiTypography-root MuiTypography-body1 css-ssnkpv">Use MetaMask, Unisat, OKX Wallet, Xverse, Leather, etc. to interact with B², just like you normally would.</p>
+                <p class="MuiTypography-root MuiTypography-body1 css-ssnkpv">Users enjoy easy access with BTC or ETH addresses via account abstraction.</p>
+              </div>
+            </div>
+          </div>
+          <div class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-lg-3 css-4v9257 aos-init aos-animate" data-aos="fade-up">
+            <div class="MuiBox-root css-61wtg">
+              <div class="MuiBox-root css-szlsa3">03</div>
+              <p class="MuiTypography-root MuiTypography-body1 css-fzjcbz">Easy to Construct and Migrate Dapps</p>
+              <div class="MuiBox-root css-0">
+                <p class="MuiTypography-root MuiTypography-body1 css-ssnkpv">With comprehensive tools, users and developers can easily switch to, build on and migrate dapps from EVM-compatible chains to B² network.</p>
+              </div>
+            </div>
+          </div>
+          <div class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-lg-3 css-4v9257 aos-init aos-animate" data-aos="fade-up">
+            <div class="MuiBox-root css-61wtg">
+              <div class="MuiBox-root css-szlsa3">04</div>
+              <p class="MuiTypography-root MuiTypography-body1 css-fzjcbz">DA Layer for Bitcoin</p>
+              <div class="MuiBox-root css-0">
+                <p class="MuiTypography-root MuiTypography-body1 css-ssnkpv">Allowing any ZK-Rollup solution to use Bitcoin as settlement layer through B² Hub.</p>
+                <p class="MuiTypography-root MuiTypography-body1 css-ssnkpv">Submitting aggregated ZK-Rollup data and proofs from different ZK-Rollups to Bitcoin, reducing transaction congestion.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="MuiBox-root css-24zhj9">
+        <div class="MuiBox-root css-18bzo0h">
+          <p class="MuiTypography-root MuiTypography-body1 css-i9edcz aos-init" data-aos="fade-down">Architecture of B²</p><img class="hvr-grow aos-init aos-animate" data-aos="fade-up" src="https://bsquared.network/assets/architecture.png" style="width:100%;display:block;margin:auto;pointer-events:none;user-select:none" alt="architeture">
+        </div>
+      </div>
+      <div class="MuiBox-root css-24zhj9">
+        <div class="MuiBox-root css-1yhf7jm">
+          <p class="MuiTypography-root MuiTypography-body1 css-i9edcz aos-init" data-aos="fade-down">B² Network Friends</p>
+          <div class="MuiGrid-root MuiGrid-container css-775r3z">
+            <div class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-lg-4 css-pjvi1b aos-init aos-animate" data-aos="fade-up">
+              <div class="MuiBox-root css-x1ek6b">
+                <div class="MuiBox-root css-0">
+                  <div class="MuiBox-root css-1fcsmgl"><img alt="avatar" loading="lazy" width="54" height="54" decoding="async" data-nimg="1" class="avatar" style="color:transparent" src="https://bsquared.network/_next/static/media/friend0.722cd479.png">
+                    <div class="MuiBox-root css-eqohbe">
+                      <div class="MuiBox-root css-gg4vpm">
+                        <p class="MuiTypography-root MuiTypography-body1 css-1demp5n">ardizor 🧙‍♂️</p><a target="_blank" ><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="none">
+                            <g opacity="0.6">
+                              <path fill="#000" d="M15 0c8.285 0 15 6.715 15 15s-6.715 15-15 15S0 23.285 0 15 6.718 0 15 0"></path>
+                              <path fill="#fff" d="M19.93 7.5h2.628l-5.742 6.564 6.756 8.932h-5.29l-4.144-5.417-4.74 5.417h-2.63l6.142-7.021L6.429 7.5h5.424l3.745 4.951L19.93 7.5m-.923 13.922h1.457L11.062 8.991H9.498l9.51 12.431"></path>
+                            </g>
+                          </svg></a>
+                      </div>
+                      <p class="MuiTypography-root MuiTypography-body1 css-bzwgaz">@ardizor</p>
+                    </div>
+                  </div>
+                  <div class="MuiBox-root css-1qw7aa3">
+                    <p class="MuiTypography-root MuiTypography-body1 css-ab8sii">Unleash the Power of Bitcoin's Layer-2 Solution. Say goodbye to Bitcoin's scalability issues and hello to unparalleled asset flexibility.</p>
+                    <p class="MuiTypography-root MuiTypography-body1 css-ab8sii">Enter @BsquaredNetwork, the ultimate Layer-2 solution that turbocharges transaction speeds and unlocks endless application possibilities 👇</p>
+                  </div>
+                </div>
+                <div class="MuiBox-root css-0"><img class="card" src="https://bsquared.network/assets/friend_card0.png" alt="image">
+                  <p class="MuiTypography-root MuiTypography-body1 css-1y9hsts">20:25 12/11/2023</p>
+                </div>
+              </div>
+            </div>
+            <div class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-lg-4 css-pjvi1b aos-init aos-animate" data-aos="fade-up">
+              <div class="MuiBox-root css-xk0mwx">
+                <div class="MuiBox-root css-0">
+                  <div class="MuiBox-root css-1fcsmgl"><img alt="avatar" loading="lazy" width="54" height="54" decoding="async" data-nimg="1" class="avatar" style="color:transparent" src="https://bsquared.network/_next/static/media/friend1.dc6cd9cd.png">
+                    <div class="MuiBox-root css-eqohbe">
+                      <div class="MuiBox-root css-gg4vpm">
+                        <p class="MuiTypography-root MuiTypography-body1 css-1demp5n">andrew.moh</p><a target="_blank" ><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="none">
+                            <g opacity="0.6">
+                              <path fill="#000" d="M15 0c8.285 0 15 6.715 15 15s-6.715 15-15 15S0 23.285 0 15 6.718 0 15 0"></path>
+                              <path fill="#fff" d="M19.93 7.5h2.628l-5.742 6.564 6.756 8.932h-5.29l-4.144-5.417-4.74 5.417h-2.63l6.142-7.021L6.429 7.5h5.424l3.745 4.951L19.93 7.5m-.923 13.922h1.457L11.062 8.991H9.498l9.51 12.431"></path>
+                            </g>
+                          </svg></a>
+                      </div>
+                      <p class="MuiTypography-root MuiTypography-body1 css-bzwgaz">@0xAndrewMoh</p>
+                    </div>
+                  </div>
+                  <div class="MuiBox-root css-1qw7aa3">
+                    <p class="MuiTypography-root MuiTypography-body1 css-ab8sii">#Bitcoin's revolution brings challenges: limited transactions, high fees, and slow confirmations.</p>
+                    <p class="MuiTypography-root MuiTypography-body1 css-ab8sii">A Layer-2 Solution is on the horizon.</p>
+                    <p class="MuiTypography-root MuiTypography-body1 css-ab8sii">Curious about what it is?</p>
+                    <p class="MuiTypography-root MuiTypography-body1 css-ab8sii">A thread 🧵(0/18)</p>
+                  </div>
+                </div>
+                <div class="MuiBox-root css-0"><img class="card" src="https://bsquared.network/assets/friend_card1.png" alt="image">
+                  <p class="MuiTypography-root MuiTypography-body1 css-1y9hsts">20:20 12/11/2023</p>
+                </div>
+              </div>
+            </div>
+            <div class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-lg-4 css-pjvi1b aos-init aos-animate" data-aos="fade-up">
+              <div class="MuiBox-root css-xk0mwx">
+                <div class="MuiBox-root css-0">
+                  <div class="MuiBox-root css-1fcsmgl"><img alt="avatar" loading="lazy" width="54" height="54" decoding="async" data-nimg="1" class="avatar" style="color:transparent" src="https://bsquared.network/_next/static/media/friend2.e5628168.png">
+                    <div class="MuiBox-root css-eqohbe">
+                      <div class="MuiBox-root css-gg4vpm">
+                        <p class="MuiTypography-root MuiTypography-body1 css-1demp5n">Moses Perry🥷📊</p><a target="_blank" ><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="none">
+                            <g opacity="0.6">
+                              <path fill="#000" d="M15 0c8.285 0 15 6.715 15 15s-6.715 15-15 15S0 23.285 0 15 6.718 0 15 0"></path>
+                              <path fill="#fff" d="M19.93 7.5h2.628l-5.742 6.564 6.756 8.932h-5.29l-4.144-5.417-4.74 5.417h-2.63l6.142-7.021L6.429 7.5h5.424l3.745 4.951L19.93 7.5m-.923 13.922h1.457L11.062 8.991H9.498l9.51 12.431"></path>
+                            </g>
+                          </svg></a>
+                      </div>
+                      <p class="MuiTypography-root MuiTypography-body1 css-bzwgaz">@PerryYzer1</p>
+                    </div>
+                  </div>
+                  <div class="MuiBox-root css-1qw7aa3">
+                    <p class="MuiTypography-root MuiTypography-body1 css-ab8sii">What do you get when you combine creativity, innovation, and a passion for technology?</p>
+                    <p class="MuiTypography-root MuiTypography-body1 css-ab8sii">The answer is @BsquaredNetwork</p>
+                    <p class="MuiTypography-root MuiTypography-body1 css-ab8sii">The most Practical Bitcoin Layer-2 Network A 🧵❤️ rt</p>
+                  </div>
+                </div>
+                <div class="MuiBox-root css-0"><img class="card" src="https://bsquared.network/assets/friend_card2.png" alt="image">
+                  <p class="MuiTypography-root MuiTypography-body1 css-1y9hsts">16:25 15/11/2023</p>
+                </div>
+              </div>
+            </div>
+            <div class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-lg-4 css-pjvi1b aos-init aos-animate" data-aos="fade-up">
+              <div class="MuiBox-root css-j37fc6">
+                <div class="MuiBox-root css-0">
+                  <div class="MuiBox-root css-1fcsmgl"><img alt="avatar" loading="lazy" width="54" height="54" decoding="async" data-nimg="1" class="avatar" style="color:transparent" src="https://bsquared.network/_next/static/media/friend3.096efdf0.png">
+                    <div class="MuiBox-root css-eqohbe">
+                      <div class="MuiBox-root css-gg4vpm">
+                        <p class="MuiTypography-root MuiTypography-body1 css-1demp5n">BRC20 Station 🟧</p><a target="_blank" ><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="none">
+                            <g opacity="0.6">
+                              <path fill="#000" d="M15 0c8.285 0 15 6.715 15 15s-6.715 15-15 15S0 23.285 0 15 6.718 0 15 0"></path>
+                              <path fill="#fff" d="M19.93 7.5h2.628l-5.742 6.564 6.756 8.932h-5.29l-4.144-5.417-4.74 5.417h-2.63l6.142-7.021L6.429 7.5h5.424l3.745 4.951L19.93 7.5m-.923 13.922h1.457L11.062 8.991H9.498l9.51 12.431"></path>
+                            </g>
+                          </svg></a>
+                      </div>
+                      <p class="MuiTypography-root MuiTypography-body1 css-bzwgaz">@BRC20_Station</p>
+                    </div>
+                  </div>
+                  <div class="MuiBox-root css-14v4573">
+                    <p class="MuiTypography-root MuiTypography-body1 css-ab8sii">💫 Introduce @BsquaredNetwork💫</p>
+                    <p class="MuiTypography-root MuiTypography-body1 css-ab8sii">🔥 The most Practical Bitcoin Layer-2 Network | Exponentially expanding the #Bitcoin Ecosystem.</p>
+                    <p class="MuiTypography-root MuiTypography-body1 css-ab8sii">👉 What makes this project special? Let's explore this potential project with us right now.</p>
+                    <p class="MuiTypography-root MuiTypography-body1 css-ab8sii">A thread 🧵</p>
+                    <p class="MuiTypography-root MuiTypography-body1 css-ab8sii">#BRC20 #Ordinals $ordi $meme $pepe $sats</p>
+                  </div>
+                </div>
+                <div class="MuiBox-root css-0"><img class="card" src="https://bsquared.network/assets/friend_card3.png" alt="image">
+                  <p class="MuiTypography-root MuiTypography-body1 css-1y9hsts">20:50 12/11/2023</p>
+                </div>
+              </div>
+            </div>
+            <div class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-lg-4 css-pjvi1b aos-init aos-animate" data-aos="fade-up">
+              <div class="MuiBox-root css-j37fc6">
+                <div class="MuiBox-root css-0">
+                  <div class="MuiBox-root css-1fcsmgl"><img alt="avatar" loading="lazy" width="54" height="54" decoding="async" data-nimg="1" class="avatar" style="color:transparent" src="https://bsquared.network/_next/static/media/friend4.6157f734.png">
+                    <div class="MuiBox-root css-eqohbe">
+                      <div class="MuiBox-root css-gg4vpm">
+                        <p class="MuiTypography-root MuiTypography-body1 css-1demp5n">DEE-EMPRESS🟧🌔</p><a target="_blank" ><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="none">
+                            <g opacity="0.6">
+                              <path fill="#000" d="M15 0c8.285 0 15 6.715 15 15s-6.715 15-15 15S0 23.285 0 15 6.718 0 15 0"></path>
+                              <path fill="#fff" d="M19.93 7.5h2.628l-5.742 6.564 6.756 8.932h-5.29l-4.144-5.417-4.74 5.417h-2.63l6.142-7.021L6.429 7.5h5.424l3.745 4.951L19.93 7.5m-.923 13.922h1.457L11.062 8.991H9.498l9.51 12.431"></path>
+                            </g>
+                          </svg></a>
+                      </div>
+                      <p class="MuiTypography-root MuiTypography-body1 css-bzwgaz">@Deedefiempress8</p>
+                    </div>
+                  </div>
+                  <div class="MuiBox-root css-14v4573">
+                    <p class="MuiTypography-root MuiTypography-body1 css-ab8sii">Since the advent of Bitcoin in 2008, we've seen a massive improvement in the financial sector But what's more interesting is seeing the once rigid blockchain turn into something as simple as a Layer 2. </p>
+                    <p class="MuiTypography-root MuiTypography-body1 css-ab8sii">Surprised right?, walk with me to find out more about</p>
+                    <p class="MuiTypography-root MuiTypography-body1 css-ab8sii">@BsquaredNetwork🧵</p>
+                  </div>
+                </div>
+                <div class="MuiBox-root css-0"><img class="card" src="https://bsquared.network/assets/friend_card4.png" alt="image">
+                  <p class="MuiTypography-root MuiTypography-body1 css-1y9hsts">20:31 19/11/2023</p>
+                </div>
+              </div>
+            </div>
+            <div class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-lg-4 css-pjvi1b aos-init aos-animate" data-aos="fade-up">
+              <div class="MuiBox-root css-j37fc6">
+                <div class="MuiBox-root css-0">
+                  <div class="MuiBox-root css-1fcsmgl"><img alt="avatar" loading="lazy" width="54" height="54" decoding="async" data-nimg="1" class="avatar" style="color:transparent" src="https://bsquared.network/_next/static/media/friend5.b1edc83f.png">
+                    <div class="MuiBox-root css-eqohbe">
+                      <div class="MuiBox-root css-gg4vpm">
+                        <p class="MuiTypography-root MuiTypography-body1 css-1demp5n">MrMee🔥⚛️💜🎮₿💎</p><a target="_blank" ><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="none">
+                            <g opacity="0.6">
+                              <path fill="#000" d="M15 0c8.285 0 15 6.715 15 15s-6.715 15-15 15S0 23.285 0 15 6.718 0 15 0"></path>
+                              <path fill="#fff" d="M19.93 7.5h2.628l-5.742 6.564 6.756 8.932h-5.29l-4.144-5.417-4.74 5.417h-2.63l6.142-7.021L6.429 7.5h5.424l3.745 4.951L19.93 7.5m-.923 13.922h1.457L11.062 8.991H9.498l9.51 12.431"></path>
+                            </g>
+                          </svg></a>
+                      </div>
+                      <p class="MuiTypography-root MuiTypography-body1 css-bzwgaz">@0xMrMee</p>
+                    </div>
+                  </div>
+                  <div class="MuiBox-root css-14v4573">
+                    <p class="MuiTypography-root MuiTypography-body1 css-ab8sii">-&gt;Enhanced security through zk proofs</p>
+                    <p class="MuiTypography-root MuiTypography-body1 css-ab8sii">-&gt;Account abstraction supporting Bitcoin, Ethereum and social accounts -&gt;Gas delegation -&gt;Decentralized sequencing -&gt;Cross-chain functionality. And more are features </p>
+                    <p class="MuiTypography-root MuiTypography-body1 css-ab8sii">@BsquaredNetwork. offers.It is a revolutionary ZK Proof verification commitment rollup solution designed specifically for Bitcoin.#BSquared #BTC</p>
+                  </div>
+                </div>
+                <div class="MuiBox-root css-0"><img class="card" src="https://bsquared.network/assets/friend_card5.png" alt="image">
+                  <p class="MuiTypography-root MuiTypography-body1 css-1y9hsts">04:57 20/11/2023</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="MuiBox-root css-1qcmu60">
+      <div class="MuiBox-root css-ruafan">
+        <div class="MuiBox-root css-bvn10m">
+          
+          <div class="MuiBox-root css-gg4vpm">
+            <div class="MuiBox-root css-14g07js"><a class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-y3q6wp" href="https://twitter.com/" target="_blank"><img src="/assets/icon_twitter.svg" style="width: 20px; height: 20px;" alt="href"></a><a class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-y3q6wp" href="https://t.me/" target="_blank"><img src="/assets/icon_tg.svg" style="width: 20px; height: 20px;" alt="href"></a><a class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-y3q6wp" href="https://www.discord.gg/" target="_blank"><img src="/assets/icon_discord.svg" style="width: 20px; height: 20px;" alt="href"></a><a class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-y3q6wp" href="https://medium.com/" target="_blank"><img src="/assets/icon_medium.svg" style="width: 20px; height: 20px;" alt="href"></a></div><a href="/"><img style="width: 100px;" src="/assets/logo.svg" alt="logo"></a>
+          </div>
+        </div>
+      </div>
+      <p class="MuiTypography-root MuiTypography-body1 css-1jmggb0">© 2024 B² Network – All rights reserved</p>
+    </div>
+  </div>
+  <next-route-announcer style="position: absolute;"></next-route-announcer>
+</body>
+
+</html>
